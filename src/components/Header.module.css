@@ -5,3 +5,7 @@
   align-items: center;
   height: 12.5rem;
 }
+
+.header img {
+  height: 3rem;
+}
