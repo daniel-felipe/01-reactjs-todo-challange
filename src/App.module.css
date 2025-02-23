@@ -7,3 +7,45 @@ main {
   max-width: 46rem;
   margin: 0 auto;
 }
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+.header > div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header > div > span:nth-child(2) {
+  background-color: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.createdTitle {
+  color: var(--blue);
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.doneTitle {
+  color: var(--purple);
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.listWrapper {
+  margin-top: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
