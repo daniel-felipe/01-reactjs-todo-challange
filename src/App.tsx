@@ -37,7 +37,7 @@ export function App() {
             {tasks.length > 0 ? (
               <>
                 {tasks.map((task) => (
-                  <Task key={task.id} task={task} />
+                  <Task key={task.id} task={task} setTasks={setTasks} />
                 ))}
               </>
             ) : (
