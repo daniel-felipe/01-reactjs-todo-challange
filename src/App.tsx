@@ -17,6 +17,14 @@ export interface TaskType {
 export function App() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
 
+  const completedTasksCount = tasks.reduce((acc, task) => {
+    if (!task.isCompleted) {
+      return acc;
+    }
+
+    return acc + 1;
+  }, 0);
+
   return (
     <main>
       <Header />
@@ -30,7 +38,13 @@ export function App() {
             </div>
             <div>
               <span className={styles.doneTitle}>Concluídas</span>
-              <span>0</span>
+              {completedTasksCount > 0 ? (
+                <span>
+                  {completedTasksCount} de {tasks.length}
+                </span>
+              ) : (
+                <span>0</span>
+              )}
             </div>
           </div>
           <div className={styles.listWrapper}>

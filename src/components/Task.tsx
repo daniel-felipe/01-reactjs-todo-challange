@@ -18,9 +18,21 @@ export function Task({ task, setTasks }: TaskProps) {
     setTasks((state) => state.filter((t) => t.id !== task.id));
   }
 
+  function handleCompleteTask() {
+    setTasks((state) => {
+      return state.map((t) => {
+        if (t.id !== task.id) {
+          return t;
+        }
+
+        return { ...task, isCompleted: !task.isCompleted };
+      });
+    });
+  }
+
   return (
     <div className={styles.task}>
-      <div>
+      <div onClick={handleCompleteTask}>
         <label htmlFor="checkbox">
           <input type="checkbox" readOnly />
           <div className={`${styles.checkbox} ${checkboxClass}`}>
