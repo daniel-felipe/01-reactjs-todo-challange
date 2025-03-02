@@ -5,7 +5,6 @@ import styles from "./App.module.css";
 import "./global.css";
 import { NewTaskInput } from "./components/NewTaskInput";
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { Task } from "./components/Task";
 import { EmptyState } from "./components/EmptyState";
 
@@ -16,31 +15,18 @@ export interface TaskType {
 }
 
 export function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: uuidv4(),
-      title:
-        "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isCompleted: false,
-    },
-    {
-      id: uuidv4(),
-      title:
-        "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      isCompleted: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState<TaskType[]>([]);
 
   return (
     <main>
       <Header />
       <section className={styles.container}>
-        <NewTaskInput />
+        <NewTaskInput setTasks={setTasks} />
         <div>
           <div className={styles.header}>
             <div>
               <span className={styles.createdTitle}>Tarefas criadas</span>
-              <span>0</span>
+              <span>{tasks.length}</span>
             </div>
             <div>
               <span className={styles.doneTitle}>Concluídas</span>
